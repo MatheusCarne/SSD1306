@@ -38,39 +38,24 @@
 
 ### Descrição do projeto
 
-Neste repositório foram desenvolvidas duas bibliotecas para utilizar do módulo MPU6050 utilizando das medições do giroscópio e do acelerômetro.
+Esta biblioteca permite a comunicação com o display OLED SSD1306 via I2C e SPI no ESP32 utilizando o framework ESP-IDF. Suporta exibição de textos e figuras, facilitando a interface gráfica para projetos embarcados.
 
-Na biblioteca **sensor_imu** implementa funções para inicializar, ler dados e desinicializar o sensor IMU (MPU6050) usando o protocolo I2C.
-
-```
-imu_init(): Inicializa o sensor MPU6050 configurando o driver I2C e verificando se o dispositivo está acessível.
-
-imu_get_acceleration_data: Lê os dados de aceleração do sensor.
-
-imu_get_gyroscope_data: Lê os dados do giroscópio do sensor.
-
-imu_deinit: Desinicializa o driver I2C, liberando os recursos alocados.
-```
-
-Na **imu_tools** implementa funções relacionadas à leitura de dados de um sensor IMU (MPU6050), cálculo de quaternions e conversão para ângulos de Euler.  
 
 ```
-imu_read_data: Lê os dados do acelerômetro e giroscópio do sensor IMU, inicializando a comunicação I2C e coletando as informações necessárias.
+void ssd1306_init( ): Inicializa o display SSD1306.
 
-imu_calculate_quaternion: Calcula o quaternion que representa a orientação do sensor a partir dos dados de aceleração e giroscópio.
+void ssd1306_draw_string( ): Escreve uma string no display na posição especificada.
 
-imu_calculate_euler_angles: Converte um quaternion em ângulos de Euler (roll, pitch, yaw), que são mais intuitivos para descrever a orientação de um objeto.
+void ssd1306_draw_char( ): Desenha um caractere na posição especificada.
 
+void ssd1306_clear( ): Limpa o display e apaga todos os pixels.
+
+void ssd1306_update_screen( ): Atualiza o display para exibir as mudanças feitas no buffer.
+
+ssd1306_draw_rectangle( ): Desenha um retângulo na tela OLED na posição (x, y) com a largura width e altura height.
+
+ssd1306_draw_pixel( ): Define o estado de um único pixel na tela OLED na posição (x, y).
 ```
-
-# Diagrama de estados
-![diagrama de estados](imagens/estados1.drawio.png)  
-
-# Diagrama de blocos
-![diagrama de blocos](imagens/diagramadeblocos.png)   
 
 # Esquemático
 ![esquemático](imagens/esquematico.png)
-
-# Diagrama de arquitetura
-![Arquitetura](imagens/arquitetura.png)
