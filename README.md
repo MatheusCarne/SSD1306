@@ -58,4 +58,4 @@ ssd1306_draw_pixel( ): Define o estado de um único pixel na tela OLED na posiç
 ```
 
 # Esquemático
-![esquemático](imagens/esquematico.png)
+![esquemático](imagens/esquematico2.png)
